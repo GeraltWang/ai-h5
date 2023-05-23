@@ -1,12 +1,22 @@
+/*
+ * @Author: 王昶
+ * @Date: 2023-05-23 17:29:00
+ * @LastEditors: 王昶
+ * @LastEditTime: 2023-05-23 18:02:32
+ * @FilePath: /ai-h5/src/router/modules.ts
+ * @Description:
+ *
+ *
+ */
 import { RouteRecordRaw } from 'vue-router';
 
 const Layout = () => import('@/layout/index.vue');
 
 const routeModuleList: Array<RouteRecordRaw> = [
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    redirect: '/dashboard/index',
+    path: '/home',
+    name: 'Home',
+    redirect: '/home/index',
     component: Layout,
     meta: {
       title: '主控台',
@@ -15,14 +25,34 @@ const routeModuleList: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'index',
-        name: 'DashboardPage',
+        name: 'HomePage',
         meta: {
           keepAlive: false,
         },
-        component: () => import('@/views/dashboard/index.vue'),
+        component: () => import('@/views/home/index.vue'),
       },
     ],
   },
+  // {
+  //   path: '/dashboard',
+  //   name: 'Dashboard',
+  //   redirect: '/dashboard/index',
+  //   component: Layout,
+  //   meta: {
+  //     title: '主控台',
+  //     icon: 'wap-home',
+  //   },
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'DashboardPage',
+  //       meta: {
+  //         keepAlive: false,
+  //       },
+  //       component: () => import('@/views/dashboard/index.vue'),
+  //     },
+  //   ],
+  // },
   {
     path: '/message',
     name: 'Message',

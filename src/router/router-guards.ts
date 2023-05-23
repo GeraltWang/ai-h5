@@ -1,8 +1,18 @@
+/*
+ * @Author: 王昶
+ * @Date: 2023-05-23 17:29:00
+ * @LastEditors: 王昶
+ * @LastEditTime: 2023-05-23 17:55:14
+ * @FilePath: /ai-h5/src/router/router-guards.ts
+ * @Description:
+ *
+ *
+ */
 import { isNavigationFailure, Router } from 'vue-router';
 import { useRouteStoreWidthOut } from '@/store/modules/route';
 import { useUserStoreWidthOut } from '@/store/modules/user';
-import { ACCESS_TOKEN } from '@/store/mutation-types';
-import { storage } from '@/utils/Storage';
+// import { ACCESS_TOKEN } from '@/store/mutation-types';
+// import { storage } from '@/utils/Storage';
 import { PageEnum } from '@/enums/pageEnum';
 
 const LOGIN_PATH = PageEnum.BASE_LOGIN;
@@ -27,13 +37,13 @@ export function createRouterGuards(router: Router) {
       return;
     }
 
-    const token = storage.get(ACCESS_TOKEN);
+    // const token = storage.get(ACCESS_TOKEN);
 
-    if (!token) {
-      // redirect login page
-      next(LOGIN_PATH);
-      return;
-    }
+    // if (!token) {
+    //   // redirect login page
+    //   next(LOGIN_PATH);
+    //   return;
+    // }
 
     // 当上次更新时间为空时获取用户信息
     if (userStore.getLastUpdateTime === 0) {

@@ -1,3 +1,13 @@
+<!--
+ * @Author: 王昶
+ * @Date: 2023-05-23 17:29:00
+ * @LastEditors: 王昶
+ * @LastEditTime: 2023-05-23 17:56:15
+ * @FilePath: /ai-h5/src/layout/index.vue
+ * @Description: 
+ * 
+ * 
+-->
 <template>
   <div class="h-screen flex flex-col">
     <van-nav-bar v-if="getShowHeader" fixed placeholder :title="getTitle" />
@@ -17,7 +27,7 @@
         <component v-else :is="Component" :key="route.fullPath" />
       </template>
     </routerView>
-    <van-tabbar route class="tabbar">
+    <!-- <van-tabbar route class="tabbar">
       <van-tabbar-item
         fixed
         replace
@@ -27,7 +37,7 @@
         :icon="(menu.meta?.icon as string)"
         >{{ menu.meta?.title }}
       </van-tabbar-item>
-    </van-tabbar>
+    </van-tabbar> -->
   </div>
 </template>
 
@@ -44,11 +54,11 @@
   const getTitle = computed(() => currentRoute.meta.title as string);
 
   // 菜单
-  const getMenus = computed(() =>
-    routeStore.menus.filter((item) => {
-      return !item.meta?.innerPage;
-    })
-  );
+  // const getMenus = computed(() =>
+  //   routeStore.menus.filter((item) => {
+  //     return !item.meta?.innerPage;
+  //   })
+  // );
 
   const getShowHeader = computed(() => !currentRoute.meta.hiddenHeader);
 </script>
